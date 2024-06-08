@@ -227,6 +227,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  on_process_button_widget:
+    dependency: "direct main"
+    description:
+      name: on_process_button_widget
+      sha256: d3e65ca70816e2b76171f839a2fa3772a6578b7f55262f2fe265a3dab6bba737
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   path:
     dependency: transitive
     description:

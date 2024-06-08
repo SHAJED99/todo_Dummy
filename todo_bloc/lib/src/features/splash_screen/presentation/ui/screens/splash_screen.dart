@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc/components.dart';
 import 'package:todo_bloc/src/core/presentation/widgets/text.dart';
+import 'package:todo_bloc/src/features/authentication/presentation/login/ui/screens/login_screen.dart';
 import 'package:todo_bloc/src/features/splash_screen/presentation/bloc/splash_screen_bloc.dart';
 import 'package:todo_bloc/src/features/splash_screen/presentation/bloc/splash_screen_event.dart';
 import 'package:todo_bloc/src/features/splash_screen/presentation/bloc/splash_screen_state.dart';
@@ -33,7 +34,13 @@ class _SplashScreenState extends State<SplashScreen> {
           create: (context) => bloc,
           child: BlocListener<SplashScreenBloc, SplashScreenState>(
             listener: (context, state) {
-              if (state.isInit && state.isSplashScreenDone) Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Container()));
+              if (!state.isInit || !state.isSplashScreenDone) return;
+
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+              );
             },
             child: const Stack(
               children: [
